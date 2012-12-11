@@ -75,13 +75,12 @@ public class LoginActivity extends Activity {
 		mLoginStatusView = findViewById(R.id.login_status);
 		mLoginStatusMessageView = (TextView) findViewById(R.id.login_status_message);
 
-		findViewById(R.id.sign_in_button).setOnClickListener(
-				new View.OnClickListener() {
-					@Override
-					public void onClick(View view) {
-						attemptLogin();
-					}
-				});
+		findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				attemptLogin();
+			}
+		});
 	}
 
 	@Override
@@ -157,28 +156,21 @@ public class LoginActivity extends Activity {
 		// for very easy animations. If available, use these APIs to fade-in
 		// the progress spinner.
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-			int shortAnimTime = getResources().getInteger(
-					android.R.integer.config_shortAnimTime);
+			int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
 			mLoginStatusView.setVisibility(View.VISIBLE);
-			mLoginStatusView.animate().setDuration(shortAnimTime)
-			.alpha(show ? 1 : 0)
-			.setListener(new AnimatorListenerAdapter() {
+			mLoginStatusView.animate().setDuration(shortAnimTime).alpha(show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
 				@Override
 				public void onAnimationEnd(Animator animation) {
-					mLoginStatusView.setVisibility(show ? View.VISIBLE
-							: View.GONE);
+					mLoginStatusView.setVisibility(show ? View.VISIBLE : View.GONE);
 				}
 			});
 
 			mLoginFormView.setVisibility(View.VISIBLE);
-			mLoginFormView.animate().setDuration(shortAnimTime)
-			.alpha(show ? 0 : 1)
-			.setListener(new AnimatorListenerAdapter() {
+			mLoginFormView.animate().setDuration(shortAnimTime).alpha(show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
 				@Override
 				public void onAnimationEnd(Animator animation) {
-					mLoginFormView.setVisibility(show ? View.GONE
-							: View.VISIBLE);
+					mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
 				}
 			});
 		} else {
